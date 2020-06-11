@@ -1,0 +1,176 @@
+html {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+#layer-1 > div > h2{
+  font-family: 'Quantico', sans-serif;
+  color: black;
+  font-weight: bold;
+}
+
+
+#layer-1 > div > p{
+  font-family: 'Nanum Gothic', sans-serif;
+  color: black;
+}
+
+#layer-1 > div > .fa {
+  padding: 0;
+  margin:0;
+
+  font-size: 20px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  color: #66C0DA;
+}
+
+#layer-1 > div > .fa:hover {
+  opacity: 0.7;
+}
+
+
+
+/*Layer 2 positioning*/
+
+#layer-2 {
+  position:absolute;
+  min-width:100%;
+  min-height: 100%;
+  background-color: black;
+  z-index: -99;
+}
+/*Layer 1 positioning*/
+
+#layer-1 {
+  position:absolute;
+  background-color: white;
+  min-width:100%;
+  min-height: 100%;
+}
+#layer-1 > #profile-img {
+  text-align: center;
+  position:relative;
+  margin-top:90px;
+}
+
+#layer-1 > #profile-img > img {
+  width:10%;
+  min-width: 115px;
+}
+
+#layer-1 > #profile-name {
+  text-align: center;
+  font-size: 25;
+}
+
+#layer-1 > #profile-text {
+  position:relative;
+  text-align: center;
+  width:45%;
+  min-width: 300px;
+  font-size: 1rem;
+  left:50%;
+  transform:translate(-50%, 0);
+}
+
+#layer-1 > #profile-projects {
+  position:relative;
+  text-align: center;
+  width:40%;
+  left:50%; 
+  margin-top: 50px;
+  transform:translate(-50%, 0);
+}
+
+#layer-1 > #profile-projects > p{
+  position:relative;
+  transform: translate(-50%,0);
+  left:50%;
+  width:60px;
+  margin:0;
+  padding:0;
+  cursor:pointer;
+}
+
+#layer-1 > #profile-socials {
+  text-align: center;
+  width:100%;
+  position: relative;
+  bottom:8%;
+  left:50%;
+  margin-top: 50px;
+  transform: translate(-50%,0%);
+}
+
+#layer-1 > #profile-copyright {
+  text-align: center;
+  position: relative;
+  bottom:0;
+  left:50%;
+  transform: translate(-50%,0%);
+}
+
+/* @media only screen and (max-width: 767px) {
+  #layer-1 > #profile-copyright {
+    font-size:40;
+    bottom:100px;
+  }
+  #layer-1 > #profile-socials {
+    
+    bottom:200px;
+  }
+  #layer-1 > #profile-socials > .fa{
+    font-size:40;
+    margin:auto;
+    padding:20px;
+  }
+
+  #layer-1 > #profile-img > img{
+    width: 300px;
+    margin-top:100px;
+
+  }
+
+  #layer-1 > #profile-name {
+    font-size: 60;
+    margin-top:100px;
+
+  }
+
+  #layer-1 > #profile-text {
+    font-size: 40;
+    margin-top:100px;
+    width: 750px;
+  }
+  #layer-1 > #profile-projects {
+    position:absolute;
+    text-align: center;
+    font-size: 40;
+    left:50%; 
+    top:50%;
+    transform:translate(-50%, -50%);
+  }
+
+
+  #layer-1 > #profile-projects >p{
+    position:relative;
+    text-align: center;
+    transform: translate(0,0);
+    width:60px;
+    margin:0;
+    padding:0;
+    left:30%;
+  }
+} */
