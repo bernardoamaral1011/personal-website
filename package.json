@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@johh/three-effectcomposer": "0.0.7",
     "gsap": "^3.3.0",
     "three": "^0.117.1",
     "three-orbit-controls": "^82.1.0"
