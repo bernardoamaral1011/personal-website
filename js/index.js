@@ -1,42 +1,79 @@
 import "../css/styles.css";
 import "./bgLayer";
 import gsap from "gsap";
+import * as THREE from "three";
+import imagesLoaded from "imagesLoaded";
 
-// inits
+let camera, scene, renderer, mesh;
 hideLayers();
-setAnimations();
 
+preLoader();
+function preLoader() {
+  init();
+  animate();
+}
 
-// Hide second and third layers
+function init() {
+  camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
+  scene = new THREE.Scene();
+  scene.background = new THREE.Color( 0x000000 );
+  camera.position.z = 15;
+
+  let sphereGeometry = new THREE.IcosahedronBufferGeometry();
+  let sphereMaterial = new THREE.MeshBasicMaterial( { color: 0x0abab5, wireframe: false, transparent: true, opacity: 1, side: THREE.DoubleSide} );
+  mesh = new THREE.Mesh( sphereGeometry, sphereMaterial );
+  
+  let wireframeMaterial = new THREE.MeshBasicMaterial( { color: 0x000, wireframe: true, transparent: true } );
+  let wireframe = new THREE.Mesh( sphereGeometry, wireframeMaterial );
+
+  mesh.add( wireframe );
+  scene.add( mesh );
+
+  // Renderer 1 - no post processing!!!
+  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setClearColor( 0x000000, 0 ); // the default
+  renderer.setPixelRatio(window.devicePixelRatio); //hd
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  let sublayer = document.getElementById("loader");
+  sublayer.appendChild(renderer.domElement);
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  render();
+}
+
+function render() {
+  mesh.rotation.x += 0.008;
+  mesh.rotation.y += 0.005;
+  renderer.render(scene, camera);
+}
+
+const preloadImages = new Promise((resolve, reject) => {
+  imagesLoaded(document.querySelectorAll("img"), { background: true }, resolve);
+});
+
+preloadImages.then(() => {
+  // inits
+  hideLayers();
+  setTimeout(showPage, 500);
+});
+
+function showPage(){
+  gsap.timeline()
+  .to(camera.position, {duration:0.5, z:0.85}, 0)
+  .set("#loader", {display:"none"})
+  .set("#layer-1", {display:"block"})
+  .to("#layer-3", {duration:0.5, display:"block"}, 0.5)
+  .to("#layer-1", {duration:0.5, scaleX:1, scaleY:1, ease: "expo"}, 0.6);
+}
+
 function hideLayers(){
   // Hide layer2 overflow in the first state
   gsap.set("#layer-3", {overflowY: "hidden"});
-
+  gsap.set("#layer-1", {overflowY: "hidden"});
+  gsap.set("#layer-1", {scaleX:0, scaleY:0});
   // Hide elements of the second state-> this should be #layer2 -> auto alpha=1
   gsap.set("#projects-container" , {autoAlpha:0});
   gsap.set("#goback", {autoAlpha:0});
 }
-// Simple Animations
-function setAnimations(){
-  let openProjects = document.getElementById("projects-button");
-  let closeProjects = document.getElementById("goback");
-  
-  let hoverProjects = gsap.timeline({paused:true})
-  .set("#projects-button",  {width: "750px"})
-  .to("#projects-button", {duration:1, text: "This seems a bit dull. Lets change that and check some fun projects!", color:"#66C0DA"});
-  
-  let hoverProjectsNormal = gsap.timeline({paused:true})
-  .to("#projects-button", {duration:1, text: "Projects", color:"#000"})
-  .set("#projects-button",  {width: "60px"}, 1);
-  
-  openProjects.addEventListener('mouseenter', () => {
-    hoverProjectsNormal.totalProgress(0).kill();
-    hoverProjects.play(0);
-  });
-  
-  openProjects.addEventListener('mouseleave', () => {
-    hoverProjects.totalProgress(1).kill();
-    hoverProjectsNormal.play(0);
-  });
-}
-

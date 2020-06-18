@@ -107,8 +107,8 @@ function onDocumentMouseMove(e) {
 // /quocient must be changed depending on mesh reach, should also be proportional to scroll speed
 function onMouseWheel(event) {
   event.preventDefault();
-  gsap.to(mesh.position, {duration:1.5, y: initCamY - window.scrollY / 103})
-  gsap.set(camera.position, {y: initCamY - window.scrollY / 103 });
+  // gsap.to(mesh.position, {duration:1.5, y: initCamY - window.scrollY / 103})
+  // gsap.set(camera.position, {y: initCamY - window.scrollY / 103 });
 }
 
 function animate() {
@@ -128,18 +128,18 @@ let discover = gsap.timeline({paused: true})
 .set("#layer-3", {overflow: "initial", height:"350%"})
 .to("#layer-1", {duration:0.5, scaleX:0, scaleY:0, ease: "expo"}, 0)
 .to(camera.position, {duration: 0.5, z:1}, 0)
-.to(camera.position, {duration: 2, z: 15}, 0.5)
-.to("#projects-container", {duration:1, autoAlpha:1}, 1.5)
-.to("#goback", {duration: 1, autoAlpha:1}, 1.5);
+.to(camera.position, {duration: 1, z: 15}, 0.5)
+.to("#projects-container", {duration:0.5, autoAlpha:1}, 1.5)
+.set("#goback", {autoAlpha:1}, 1.5);
 
-let undiscover =gsap.timeline({paused: true})
-.set("#projects-container", { autoAlpha:0}, 0)
+let undiscover = gsap.timeline({paused: true})
+.to("#projects-container", {duration:0.5, autoAlpha:0}, 0)
 .set("#goback", { autoAlpha:0}, 0)
-.set("#layer-3", {overflow: "hidden", height:"0%"}, 0)
-.set(window,{ scrollTo:{y:0}}, 1)
-.to(camera.position, {duration: 0.5, z:14}, 0)
-.to(camera.position, {duration: 1, z: 0.85}, 1)
-.to("#layer-1", {duration:0.5, scaleX:1, scaleY:1, ease: "expo"}, 1.9);
+.fromTo(window, {scrollTo:{y:window.scrollY}}, {duration:0.5, scrollTo:{y:0}}, 0.5)
+.set("#layer-3", {overflow: "hidden", height:"0%"}, 0.8)
+.to(camera.position, {duration: 0.5, z: 0.85}, 0.5)
+.to("#layer-1", {duration:0.5, scaleX:1, scaleY:1, ease: "expo"}, 1.1);
+
 
 let openProjects = document.getElementById("projects-button");
 let closeProjects = document.getElementById("goback");
