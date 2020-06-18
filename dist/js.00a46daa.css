@@ -153,6 +153,7 @@ a:hover {
 .project-image {
   display: inline-block;
   width: 45%;
+  padding-top: 20px;
 }
 
 .project-description {
@@ -165,7 +166,7 @@ a:hover {
   margin-bottom: 30px;
   font-family: "Quantico", sans-serif;
   color: #fff;
-  font-size: 4rem;
+  font-size: 2.5rem;
 }
 .project-description p {
   color: #737375;
@@ -209,7 +210,7 @@ canvas {
 
 @media only screen and (max-width: 1000px) {
   .project-description h2 {
-    font-size: 2.4rem;
+    font-size: 2rem;
   }
   .project-description p {
     font-size: 1.4rem;
@@ -222,7 +223,7 @@ canvas {
   }
 
   .project-description h2 {
-    font-size: 2.3rem;
+    font-size: 1.5rem;
   }
   .project-description p {
     font-size: 1.3rem;
@@ -246,7 +247,7 @@ canvas {
   }
 
   .project-description h2 {
-    font-size: 2rem;
+    font-size: 1.3rem;
   }
   .project-description p {
     font-size: 1rem;

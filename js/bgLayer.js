@@ -132,7 +132,7 @@ function render() {
 
 // mega animations: everything fades away as layer-1 converges to the center and reverse
 let discover = gsap.timeline({paused: true})
-.set("#layer-3", {overflow: "initial", height:"350%"})
+.set("#layer-3", {overflow: "initial", height:"400%"})
 .to("#layer-1", {duration:0.5, scaleX:0, scaleY:0, ease: "expo"}, 0)
 .to(camera.position, {duration: 0.5, z:1}, 0)
 .to(camera.position, {duration: 1, z: 15}, 0.5)
@@ -140,7 +140,7 @@ let discover = gsap.timeline({paused: true})
 .set("#goback", {autoAlpha:1}, 1.5);
 
 let undiscover = gsap.timeline({paused: true})
-.to("#projects-container", {duration:0.5, autoAlpha:0}, 0)
+.set("#projects-container", {autoAlpha:0}, 0)
 .set("#goback", { autoAlpha:0}, 0)
 .fromTo(window, {scrollTo:{y:window.scrollY}}, {duration:0.5, scrollTo:{y:0}}, 0.5)
 .set("#layer-3", {overflow: "hidden", height:"0%"}, 0.8)

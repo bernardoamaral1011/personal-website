@@ -43135,7 +43135,7 @@ var discover = _gsap.default.timeline({
   paused: true
 }).set("#layer-3", {
   overflow: "initial",
-  height: "350%"
+  height: "400%"
 }).to("#layer-1", {
   duration: 0.5,
   scaleX: 0,
@@ -43156,8 +43156,7 @@ var discover = _gsap.default.timeline({
 
 var undiscover = _gsap.default.timeline({
   paused: true
-}).to("#projects-container", {
-  duration: 0.5,
+}).set("#projects-container", {
   autoAlpha: 0
 }, 0).set("#goback", {
   autoAlpha: 0
@@ -43858,7 +43857,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49794" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49917" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
