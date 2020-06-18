@@ -1,3 +1,8 @@
+/*
+  bgLayer.js
+
+  basic layer switching and animation
+*/
 import * as THREE from "three";
 import gsap from "gsap";
 import TextPlugin from "gsap/TextPlugin";
@@ -7,6 +12,7 @@ import EffectComposer, {
   ShaderPass,
 } from '@johh/three-effectcomposer';
 
+// setup
 gsap.registerPlugin(ScrollToPlugin);
 gsap.registerPlugin(TextPlugin);
 let camera, scene, light, renderer, composer, renderPass, customPass, mesh;
@@ -77,16 +83,16 @@ function init() {
   sublayer.appendChild(renderer.domElement);
 
   // Post Processing
-  composer = new EffectComposer(renderer);
-  renderPass = new RenderPass(scene, camera);
-  composer.addPass(renderPass);
-  customPass = new ShaderPass(myEffect);
-  customPass.renderToScreen = true;
-  composer.addPass(customPass);
+  // composer = new EffectComposer(renderer);
+  // renderPass = new RenderPass(scene, camera);
+  // composer.addPass(renderPass);
+  // customPass = new ShaderPass(myEffect);
+  // customPass.renderToScreen = true;
+  // composer.addPass(customPass);
 
   // Global Event Listeners
   document.addEventListener("mousemove", onDocumentMouseMove, false);
-  window.addEventListener("scroll", onMouseWheel, { passive: false }, false);
+  // window.addEventListener("scroll", onMouseWheel, { passive: false }, false);
   window.addEventListener("resize", onWindowResize, false);
 }
 
@@ -104,12 +110,12 @@ function onDocumentMouseMove(e) {
   uMouse.y = 1. - ( e.clientY/ window.innerHeight );
 }
 
-// /quocient must be changed depending on mesh reach, should also be proportional to scroll speed
-function onMouseWheel(event) {
-  event.preventDefault();
-  // gsap.to(mesh.position, {duration:1.5, y: initCamY - window.scrollY / 103})
-  // gsap.set(camera.position, {y: initCamY - window.scrollY / 103 });
-}
+// // /quocient must be changed depending on mesh reach, should also be proportional to scroll speed
+// function onMouseWheel(event) {
+//   event.preventDefault();
+//   gsap.to(mesh.position, {duration:1.5, y: initCamY - window.scrollY / 103})
+//   gsap.set(camera.position, {y: initCamY - window.scrollY / 103 });
+// }
 
 function animate() {
   requestAnimationFrame(animate);
@@ -119,11 +125,12 @@ function animate() {
 function render() {
   mesh.rotation.x += 0.008;
   mesh.rotation.y += 0.005;
-  customPass.uniforms.uMouse.value = uMouse;
+  //customPass.uniforms.uMouse.value = uMouse;
+  //composer.render();
   renderer.render(scene, camera);
 }
 
-// mega animation: everything fades away as layer-1 converges to the center
+// mega animations: everything fades away as layer-1 converges to the center and reverse
 let discover = gsap.timeline({paused: true})
 .set("#layer-3", {overflow: "initial", height:"350%"})
 .to("#layer-1", {duration:0.5, scaleX:0, scaleY:0, ease: "expo"}, 0)
@@ -141,6 +148,7 @@ let undiscover = gsap.timeline({paused: true})
 .to("#layer-1", {duration:0.5, scaleX:1, scaleY:1, ease: "expo"}, 1.1);
 
 
+// open and close projects layer
 let openProjects = document.getElementById("projects-button");
 let closeProjects = document.getElementById("goback");
 

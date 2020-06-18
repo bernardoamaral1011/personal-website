@@ -1,3 +1,6 @@
+# 3jsServer.py 
+# Creates a local server in current directory
+
 #!/usr/bin/env python3
 from http.server import HTTPServer, SimpleHTTPRequestHandler, test
 import sys

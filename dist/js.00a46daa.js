@@ -184,7 +184,7 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"css/styles.css":[function(require,module,exports) {
+},{"./bundle-url":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"scss/main.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -43013,6 +43013,12 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
+/*
+  bgLayer.js
+
+  basic layer switching and animation
+*/
+// setup
 _gsap.default.registerPlugin(_ScrollToPlugin.default);
 
 _gsap.default.registerPlugin(_TextPlugin.default);
@@ -43078,18 +43084,16 @@ function init() {
   document.body.appendChild(renderer.domElement);
   var sublayer = document.getElementById("layer-2");
   sublayer.appendChild(renderer.domElement); // Post Processing
+  // composer = new EffectComposer(renderer);
+  // renderPass = new RenderPass(scene, camera);
+  // composer.addPass(renderPass);
+  // customPass = new ShaderPass(myEffect);
+  // customPass.renderToScreen = true;
+  // composer.addPass(customPass);
+  // Global Event Listeners
 
-  composer = new _threeEffectcomposer.default(renderer);
-  renderPass = new _threeEffectcomposer.RenderPass(scene, camera);
-  composer.addPass(renderPass);
-  customPass = new _threeEffectcomposer.ShaderPass(myEffect);
-  customPass.renderToScreen = true;
-  composer.addPass(customPass); // Global Event Listeners
+  document.addEventListener("mousemove", onDocumentMouseMove, false); // window.addEventListener("scroll", onMouseWheel, { passive: false }, false);
 
-  document.addEventListener("mousemove", onDocumentMouseMove, false);
-  window.addEventListener("scroll", onMouseWheel, {
-    passive: false
-  }, false);
   window.addEventListener("resize", onWindowResize, false);
 } //default
 
@@ -43105,13 +43109,13 @@ function onDocumentMouseMove(e) {
   event.preventDefault();
   uMouse.x = e.clientX / window.innerWidth;
   uMouse.y = 1. - e.clientY / window.innerHeight;
-} // /quocient must be changed depending on mesh reach, should also be proportional to scroll speed
+} // // /quocient must be changed depending on mesh reach, should also be proportional to scroll speed
+// function onMouseWheel(event) {
+//   event.preventDefault();
+//   gsap.to(mesh.position, {duration:1.5, y: initCamY - window.scrollY / 103})
+//   gsap.set(camera.position, {y: initCamY - window.scrollY / 103 });
+// }
 
-
-function onMouseWheel(event) {
-  event.preventDefault(); // gsap.to(mesh.position, {duration:1.5, y: initCamY - window.scrollY / 103})
-  // gsap.set(camera.position, {y: initCamY - window.scrollY / 103 });
-}
 
 function animate() {
   requestAnimationFrame(animate);
@@ -43120,10 +43124,11 @@ function animate() {
 
 function render() {
   mesh.rotation.x += 0.008;
-  mesh.rotation.y += 0.005;
-  customPass.uniforms.uMouse.value = uMouse;
+  mesh.rotation.y += 0.005; //customPass.uniforms.uMouse.value = uMouse;
+  //composer.render();
+
   renderer.render(scene, camera);
-} // mega animation: everything fades away as layer-1 converges to the center
+} // mega animations: everything fades away as layer-1 converges to the center and reverse
 
 
 var discover = _gsap.default.timeline({
@@ -43176,7 +43181,8 @@ var undiscover = _gsap.default.timeline({
   scaleX: 1,
   scaleY: 1,
   ease: "expo"
-}, 1.1);
+}, 1.1); // open and close projects layer
+
 
 var openProjects = document.getElementById("projects-button");
 var closeProjects = document.getElementById("goback");
@@ -43684,12 +43690,8 @@ return ImagesLoaded;
 
 });
 
-},{"ev-emitter":"node_modules/ev-emitter/ev-emitter.js"}],"js/index.js":[function(require,module,exports) {
+},{"ev-emitter":"node_modules/ev-emitter/ev-emitter.js"}],"js/preLoader.js":[function(require,module,exports) {
 "use strict";
-
-require("../css/styles.css");
-
-require("./bgLayer");
 
 var _gsap = _interopRequireDefault(require("gsap"));
 
@@ -43703,6 +43705,13 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/*
+  preLoader.js
+
+  a div is displayed and all others are hidden
+  this div is a preloader and has a 3d scene with a icosaedro
+  once all the website images are loaded this div is hidden and the homepage is displayed
+*/
 var camera, scene, renderer, mesh;
 hideLayers();
 preLoader();
@@ -43813,7 +43822,15 @@ function hideLayers() {
     autoAlpha: 0
   });
 }
-},{"../css/styles.css":"css/styles.css","./bgLayer":"js/bgLayer.js","gsap":"node_modules/gsap/index.js","three":"node_modules/three/build/three.module.js","imagesLoaded":"node_modules/imagesLoaded/imagesloaded.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"gsap":"node_modules/gsap/index.js","three":"node_modules/three/build/three.module.js","imagesLoaded":"node_modules/imagesLoaded/imagesloaded.js"}],"js/index.js":[function(require,module,exports) {
+"use strict";
+
+require("../scss/main.scss");
+
+require("./bgLayer");
+
+require("./preLoader");
+},{"../scss/main.scss":"scss/main.scss","./bgLayer":"js/bgLayer.js","./preLoader":"js/preLoader.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -43841,7 +43858,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62779" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49794" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
