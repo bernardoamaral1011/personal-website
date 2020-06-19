@@ -62,13 +62,13 @@ a:hover {
 }
 #layer-1 p {
   width: 65%;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 #layer-1 button {
   font-size: 1.5rem;
   font-family: "Quantico", sans-serif;
   width: 100px;
-  height: 50px;
+  height: 40px;
   margin: 4% auto;
   padding: 0;
   border: none;

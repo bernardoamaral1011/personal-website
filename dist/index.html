@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Quantico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="/icon.ffc05a48.png">
   <link rel="stylesheet" href="/js.00a46daa.css"></head>
 <body>
   <div id="loader"></div>
@@ -11,10 +12,11 @@
   <div id="layer-1" style="display:none;">
     <img class="wrap-element" src="/perfil.98a5e815.png" alt="profile-img">
     <h1 class="wrap-element">Bernardo Amaral</h1>
-    <p class="wrap-element">Hello! I'm a Portuguese MSc graduated student of Electrical and Computer Science at Instituto Superior Técnico Lisboa.</p>
-    <p class="wrap-element">I finished my MSc Thesis on an Air Quality Monitoring and Interpolation System for IoT Applications in December 2020 with a final grade of 19.</p>
-    <p class="wrap-element">My interests lie within the software development and data science fields.</p>
-    <p class="wrap-element">I like to develop useful and fun ideas.</p>
+    <p class="wrap-element">Hello! I'm a Portuguese MSc graduated student of Electrical and Computer Science at Instituto Superior Técnico Lisboa. I finished my MSc Thesis on an Air Quality Monitoring and Interpolation System for IoT Applications in December 2020 with a final grade of 19.</p>
+    <p class="wrap-element">My interests lie within the Full-Stack development and data science fields.</p>
+    <p class="wrap-element">I like to learn and to develop functional and useful ideas.</p>
+    <p class="wrap-element">Travelling, electronics and music production are some of my hobbies.</p>
+
     <button class="wrap-element" id="projects-button">Projects</button>
     <ul class="wrap-element">
       <li><a href="https://github.com/bernardoamaral1011" class="fa fa-github"></a></li>
@@ -22,6 +24,9 @@
       <li><a href="https://www.linkedin.com/in/bernardoamaral1011/" class="fa fa-linkedin"></a></li>
       <li><a href="https://www.facebook.com/bernardo.amaral.1671/" class="fa fa-facebook"></a></li>
       <li><a href="https://twitter.com/bernardonamaral" class="fa fa-twitter"></a></li>
+      <li><a href="/assets\pdf\cv.pdf" class="fa fa-user"></a>
+
+      </li>
     </ul>
     <footer class="wrap-element">&copy; 2020 Bernardo Amaral</footer>
   </div>
@@ -33,45 +38,45 @@
     <div id="projects-container">
       <ul>
         <li>
-          <img src="/project-test.f953a5ef.png" class="project-image">
+          <a href="https://bernardoamaral1011.github.io/lisbon-AQ-plot-test/"><img src="/project-test.f953a5ef.png" class="project-image"></a>
           <div class="project-description">
             <h2>Air Quality Visualisation Tool</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis odit voluptas unde necessitatibus excepturi, rem repudiandae corrupti culpa modi itaque, aut aliquam, dolorem soluta voluptatem doloribus veritatis mollitia ipsum eaque?</p>
+            <p>This tool, originally deployed in a digital ocean droplet, in an Apache server, fetches the air quality data in Lisbon from Qualar's website, runs an IDW interpolation on that data, and displays this data through extruded polygons with the Mapbox API in a simple webpage.</p>
           </div>
         </li>
         <li>
-          <a href=""><img src="/project-test.f953a5ef.png" class="project-image"></a>
+          <a href="https://github.com/bernardoamaral1011/asint-project"><img src="/asint.f6ca0734.jpg" class="project-image"></a>
           <div class="project-description">
             <h2>Web app for location-dependent message distribution</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis odit voluptas unde necessitatibus excepturi, rem repudiandae corrupti culpa modi itaque, aut aliquam, dolorem soluta voluptatem doloribus veritatis mollitia ipsum eaque?</p>
+            <p>Flask and MongoDB backend and jQuery frontend app, originally deployed in Google Cloud Platform. This app allows users, API admins and bots to send collective instant messages (RabbitMQ) to the app users depending on the user proximity to a target building (google maps API). The IST authentication protocol is implemented and users are required to have an IST account to log in.</p>
           </div>
         </li>
         <li>
-          <a href=""><img src="/project-test.f953a5ef.png" class="project-image"></a>
-          <div class="project-description">
-            <h2>Culinary recipes mobile app</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis odit voluptas unde necessitatibus excepturi, rem repudiandae corrupti culpa modi itaque, aut aliquam, dolorem soluta voluptatem doloribus veritatis mollitia ipsum eaque?</p>
-          </div>
-        </li>
-        <li>
-          <a href=""><img src="/project-test.f953a5ef.png" class="project-image"></a>
-          <div class="project-description">
-            <h2>Simple vigilance system with Raspberry Pi and Android Studio</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis odit voluptas unde necessitatibus excepturi, rem repudiandae corrupti culpa modi itaque, aut aliquam, dolorem soluta voluptatem doloribus veritatis mollitia ipsum eaque?</p>
-          </div>
-        </li>
-        <li>
-          <a href=""><img src="/project-test.f953a5ef.png" class="project-image"></a>
+          <a href="https://www.calculaoteusalariomd.pt"><img src="/calcMD.1532e802.jpg" class="project-image"></a>
           <div class="project-description">
             <h2>Salary calculation tool for dentists</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis odit voluptas unde necessitatibus excepturi, rem repudiandae corrupti culpa modi itaque, aut aliquam, dolorem soluta voluptatem doloribus veritatis mollitia ipsum eaque?</p>
+            <p>This tool calculates an approximation of the net salary of a service provider hired on green receipts. It was made in vannilla js, bundled with parcel and deployed with netlify.</p>
           </div>
         </li>
         <li>
-          <a href=""><img src="/project-test.f953a5ef.png" class="project-image"></a>
+          <a href="https://github.com/bernardoamaral1011/sibd-project"><img src="/healthCareDB.6044873e.jpg" class="project-image"></a>
           <div class="project-description">
             <h2>SQL Database for a hypothetical health care center</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis odit voluptas unde necessitatibus excepturi, rem repudiandae corrupti culpa modi itaque, aut aliquam, dolorem soluta voluptatem doloribus veritatis mollitia ipsum eaque?</p>
+            <p>Design of an SQL database. First, an E-R model was defined, followed by a Relational Model. Tables, triggers, queries, and functions were written. Finally, a simple website was created in PHP, which allowed clients to interact with the database.</p>
+          </div>
+        </li>
+        <li>
+          <a href="https://github.com/bernardoamaral1011/rmsf-project"><img src="/piCam.cd929c8c.jpg" class="project-image"></a>
+          <div class="project-description">
+            <h2>Vigilance system with Raspberry Pi and Android Studio</h2>
+            <p>Very simple Raspberry Pi based video surveillance system with PTZ camera, microphone and WiFi connectivity. This project consists of 3 parts, the mobile app, coded in Android Studio, the Raspberry Pi code for camera control and IP update, and a small server built with PHP and SQL.</p>
+          </div>
+        </li>
+        <li>
+          <a href="https://github.com/nutrifl3x"><img src="/nutriflex.862ce952.png" class="project-image"></a>
+          <div class="project-description">
+            <h2>Culinary recipes mobile app</h2>
+            <p>Still under development. Ionic and Spring mobile application, which allows users to generate weekly meal plans through a very simple UI.</p>
           </div>
         </li>
       </ul>
