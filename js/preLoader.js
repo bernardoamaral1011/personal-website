@@ -10,8 +10,7 @@ import gsap from "gsap";
 import * as THREE from "three";
 
 let camera, scene, renderer, mesh;
-var imagesLoaded = require('imagesloaded');
-
+var imagesLoaded = require("imagesloaded");
 
 hideLayers();
 preLoader();
@@ -21,24 +20,39 @@ function preLoader() {
 }
 
 function init() {
-  camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera = new THREE.PerspectiveCamera(
+    70,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
+  );
   scene = new THREE.Scene();
-  scene.background = new THREE.Color( 0x000000 );
+  scene.background = new THREE.Color(0x000000);
   camera.position.z = 15;
 
   let sphereGeometry = new THREE.IcosahedronBufferGeometry();
-  let sphereMaterial = new THREE.MeshBasicMaterial( { color: 0x0abab5, wireframe: false, transparent: true, opacity: 1, side: THREE.DoubleSide} );
-  mesh = new THREE.Mesh( sphereGeometry, sphereMaterial );
-  
-  let wireframeMaterial = new THREE.MeshBasicMaterial( { color: 0x000, wireframe: true, transparent: true } );
-  let wireframe = new THREE.Mesh( sphereGeometry, wireframeMaterial );
+  let sphereMaterial = new THREE.MeshBasicMaterial({
+    color: 0x0abab5,
+    wireframe: false,
+    transparent: true,
+    opacity: 1,
+    side: THREE.DoubleSide,
+  });
+  mesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
 
-  mesh.add( wireframe );
-  scene.add( mesh );
+  let wireframeMaterial = new THREE.MeshBasicMaterial({
+    color: 0x000,
+    wireframe: true,
+    transparent: true,
+  });
+  let wireframe = new THREE.Mesh(sphereGeometry, wireframeMaterial);
+
+  mesh.add(wireframe);
+  scene.add(mesh);
 
   // Renderer 1 - no post processing!!!
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  renderer.setClearColor( 0x000000, 0 ); // the default
+  renderer.setClearColor(0x000000, 0); // the default
   renderer.setPixelRatio(window.devicePixelRatio); //hd
   renderer.setSize(window.innerWidth, window.innerHeight);
   let sublayer = document.getElementById("loader");
@@ -66,21 +80,22 @@ preloadImages.then(() => {
   setTimeout(showPage, 500);
 });
 
-function showPage(){
-  gsap.timeline()
-  .to(camera.position, {duration:0.5, z:0.85}, 0)
-  .set("#loader", {display:"none"})
-  .set("#layer-1", {display:"block"})
-  .to("#layer-3", {duration:0.5, display:"block"}, 0.5)
-  .to("#layer-1", {duration:0.5, scaleX:1, scaleY:1, ease: "expo"}, 0.6);
+function showPage() {
+  gsap
+    .timeline()
+    .to(camera.position, { duration: 0.5, z: 0.85 }, 0)
+    .set("#loader", { display: "none" })
+    .set("#layer-1", { display: "block" })
+    .to("#layer-3", { duration: 0.5, display: "block" }, 0.5)
+    .to("#layer-1", { duration: 0.5, scaleX: 1, scaleY: 1, ease: "expo" }, 0.6);
 }
 
-function hideLayers(){
+function hideLayers() {
   // Hide layer2 overflow in the first state
-  gsap.set("#layer-3", {overflowY: "hidden"});
-  gsap.set("#layer-1", {overflowY: "hidden"});
-  gsap.set("#layer-1", {scaleX:0, scaleY:0});
+  gsap.set("#layer-3", { overflowY: "hidden" });
+  gsap.set("#layer-1", { overflowY: "hidden" });
+  gsap.set("#layer-1", { scaleX: 0, scaleY: 0 });
   // Hide elements of the second state-> this should be #layer2 -> auto alpha=1
-  gsap.set("#projects-container" , {autoAlpha:0});
-  gsap.set("#goback", {autoAlpha:0});
+  gsap.set("#projects-container", { autoAlpha: 0 });
+  gsap.set("#goback", { autoAlpha: 0 });
 }

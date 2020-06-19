@@ -7,18 +7,19 @@ html {
   font-family: $weakFont;
 }
 
-html, body {
+html,
+body {
   height: auto;
-  width:100%;
-  min-height:100%;
+  width: 100%;
+  min-height: 100%;
   background-color: transparent;
 }
 
 a {
   text-decoration: none;
   color: $main-color;
-  
-  &:hover{
+
+  &:hover {
     opacity: 0.7;
   }
 }
@@ -26,24 +27,24 @@ a {
 /* Styles relative to the homepage layer*/
 
 #layer-1 {
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
-  width:80%;
-  height:100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 100%;
   background-color: #fff;
   font-size: 100%;
-  
+
   img {
-    width:12%;
-    min-width:12rem;
+    width: 12%;
+    min-width: 12rem;
     margin-top: 9.5%;
   }
 
   h1 {
     margin: 3% auto;
-    width:90%;
+    width: 90%;
     text-align: center;
     font-size: 3.6rem;
     font-family: $strongFont;
@@ -51,15 +52,15 @@ a {
   }
 
   p {
-    width:65%;
+    width: 65%;
     font-size: 1.6rem;
   }
 
   button {
     font-size: 1.5rem;
     font-family: $strongFont;
-    width:100px;
-    height:40px;
+    width: 100px;
+    height: 40px;
     margin: 4% auto;
     padding: 0;
     border: none;
@@ -67,15 +68,16 @@ a {
     outline: none;
     cursor: pointer;
     text-transform: uppercase;
-    background:$main-color;
+    background: $main-color;
     border: 2px solid #56a0b3;
     border-radius: 0.75em;
     transform-style: preserve-3d;
-    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
-    
-    &::before{
+    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+      background 150ms cubic-bezier(0, 0, 0.58, 1);
+
+    &::before {
       position: absolute;
-      content: '';
+      content: "";
       width: 100%;
       height: 100%;
       top: 0;
@@ -86,17 +88,17 @@ a {
       border-radius: inherit;
       box-shadow: 0 0 0 2px #56a0b3, 0em 0.625em 0 #cbdfe4;
       transform: translate3d(0, 0.5em, -1em);
-      transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
-    } 
-    
-    &:active{
+      transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+        box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+    }
+
+    &:active {
       transform: translate(0em, 0.5em);
     }
-    
-    &:hover{
+
+    &:hover {
       background: #71d6f1;
     }
-    
   }
 
   ul {
@@ -104,18 +106,18 @@ a {
     font-size: 2.2rem;
     width: 100%;
 
-    li{
-      display:inline-block;
+    li {
+      display: inline-block;
       margin: 0 1rem;
     }
   }
-  
+
   footer {
-    position:absolute;
-    bottom:0;
+    position: absolute;
+    bottom: 0;
     left: 50%;
-    transform: translate(-50%,0);
-  
+    transform: translate(-50%, 0);
+
     margin-bottom: 0.8rem;
     font-size: 1.3rem;
   }
@@ -124,8 +126,8 @@ a {
 /* Styles relative to the projects layer*/
 
 #layer-3 {
-  position:absolute;
-  min-width:100%;
+  position: absolute;
+  min-width: 100%;
   min-height: 100%;
   background-color: transparent;
   z-index: -98;
@@ -133,39 +135,39 @@ a {
 }
 
 .wrap-element {
-  text-align:center;
+  text-align: center;
   margin: 0 auto;
-  display:block;
+  display: block;
 }
 
-#projects-container{
-  position:relative;
+#projects-container {
+  position: relative;
   margin: 175px auto;
-  width:92%;
-  min-height:80%;
-  height:auto;
+  width: 92%;
+  min-height: 80%;
+  height: auto;
   background-color: transparent;
-  
-  ul{
+
+  ul {
     li {
-      display:block;
+      display: block;
       margin: 150px 0 200px 0;
     }
-  } 
+  }
 }
 
 .project-image {
   display: inline-block;
-  width:45%;
-  padding-top:20px;
+  width: 45%;
+  padding-top: 20px;
 }
 
 .project-description {
-  margin-top:0;
+  margin-top: 0;
   width: 43%;
   display: inline-block;
   float: right;
-  
+
   h2 {
     margin-bottom: 30px;
     font-family: $strongFont;
@@ -178,11 +180,11 @@ a {
     font-size: 2rem;
     line-height: 3.3rem;
   }
-}  
+}
 
 #goback {
-  position:sticky;
-  top:13%;
+  position: sticky;
+  top: 13%;
   left: 4%;
   color: #fff;
   font-family: $strongFont;
@@ -193,24 +195,24 @@ a {
   outline: none;
   cursor: pointer;
   z-index: 2;
-  
-  &:hover{
+
+  &:hover {
     background-color: #fff;
-    color:#000;
+    color: #000;
   }
 }
 
 /*Styles relative to the 3D main layer*/
 #layer-2 {
-  position:absolute;
-  min-width:100%;
+  position: absolute;
+  min-width: 100%;
   min-height: 100%;
   background-color: transparent;
   z-index: -99;
 }
 
 canvas {
-  position:fixed;
+  position: fixed;
   display: block;
   z-index: -9999;
 }
@@ -218,11 +220,11 @@ canvas {
 @media only screen and (max-width: 1000px) {
   .project-description {
     h2 {
-      font-size:2rem;
+      font-size: 2rem;
     }
 
     p {
-      font-size:1.4rem;
+      font-size: 1.4rem;
       line-height: 2.3rem;
     }
   }
@@ -235,11 +237,11 @@ canvas {
 
   .project-description {
     h2 {
-      font-size:1.5rem;
+      font-size: 1.5rem;
     }
 
     p {
-      font-size:1.3rem;
+      font-size: 1.3rem;
       line-height: 1.75rem;
     }
   }
@@ -251,11 +253,11 @@ canvas {
   }
   #layer-1 {
     h1 {
-      margin:30px auto !important;
+      margin: 30px auto !important;
     }
 
     p {
-      width:85%;
+      width: 85%;
     }
 
     button {
@@ -266,22 +268,21 @@ canvas {
 
   .project-description {
     h2 {
-      font-size:1.3rem;
+      font-size: 1.3rem;
     }
 
     p {
-      font-size:1rem;
+      font-size: 1rem;
       line-height: 1.5rem;
     }
   }
 }
 
 @media only screen and (max-width: 383px) {
-  html{
+  html {
     font-size: 52%;
   }
-  footer{
-    width:100%;
+  footer {
+    width: 100%;
   }
 }
-
