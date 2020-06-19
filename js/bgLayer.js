@@ -7,10 +7,6 @@ import * as THREE from "three";
 import gsap from "gsap";
 import TextPlugin from "gsap/TextPlugin";
 import ScrollToPlugin from "gsap/ScrollToPlugin";
-import EffectComposer, {
-  RenderPass,
-  ShaderPass,
-} from '@johh/three-effectcomposer';
 
 // setup
 gsap.registerPlugin(ScrollToPlugin);

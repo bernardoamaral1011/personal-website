@@ -8,11 +8,12 @@
 
 import gsap from "gsap";
 import * as THREE from "three";
-import imagesLoaded from "imagesLoaded";
 
 let camera, scene, renderer, mesh;
-hideLayers();
+var imagesLoaded = require('imagesloaded');
 
+
+hideLayers();
 preLoader();
 function preLoader() {
   init();
