@@ -1,2 +1,4 @@
 # personalWebsite
-My personal website
+
+build: npm run build
+dev: parcel index.html
