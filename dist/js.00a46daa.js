@@ -42755,10 +42755,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   once all the website images are loaded this div is hidden and the homepage is displayed
 */
 var camera, scene, renderer, mesh;
-hideLayers();
 
 var imagesLoaded = require('imagesloaded');
 
+hideLayers();
 preLoader();
 
 function preLoader() {
@@ -42903,7 +42903,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64226" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64971" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
