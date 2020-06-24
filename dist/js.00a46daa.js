@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+})({"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -149,7 +149,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+},{}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -184,12 +184,12 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"scss/main.scss":[function(require,module,exports) {
+},{"./bundle-url":"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"scss/main.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/three/build/three.module.js":[function(require,module,exports) {
+},{"_css_loader":"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/three/build/three.module.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -42072,16 +42072,16 @@ var camera, scene, light, renderer, composer, renderPass, customPass, mesh;
 var uMouse = new THREE.Vector2();
 var myEffect = {
   uniforms: {
-    "tDiffuse": {
+    tDiffuse: {
       value: null
     },
-    "resolution": {
-      value: new THREE.Vector2(1., window.innerHeight / window.innerWidth)
+    resolution: {
+      value: new THREE.Vector2(1, window.innerHeight / window.innerWidth)
     },
-    "uMouse": {
+    uMouse: {
       value: new THREE.Vector2(-1, -1)
     },
-    "uVelo": {
+    uVelo: {
       value: 0
     }
   },
@@ -42153,7 +42153,7 @@ function onWindowResize() {
 function onDocumentMouseMove(e) {
   event.preventDefault();
   uMouse.x = e.clientX / window.innerWidth;
-  uMouse.y = 1. - e.clientY / window.innerHeight;
+  uMouse.y = 1 - e.clientY / window.innerHeight;
 } // // /quocient must be changed depending on mesh reach, should also be proportional to scroll speed
 // function onMouseWheel(event) {
 //   event.preventDefault();
@@ -42230,11 +42230,11 @@ var undiscover = _gsap.default.timeline({
 
 var openProjects = document.getElementById("projects-button");
 var closeProjects = document.getElementById("goback");
-openProjects.addEventListener('click', function () {
+openProjects.addEventListener("click", function () {
   discover.play(0);
   document.getElementById("layer-3").style.zIndex = 1;
 });
-closeProjects.addEventListener('click', function () {
+closeProjects.addEventListener("click", function () {
   document.getElementById("layer-3").style.zIndex = -98;
   undiscover.play(0);
 });
@@ -42756,7 +42756,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 */
 var camera, scene, renderer, mesh;
 
-var imagesLoaded = require('imagesloaded');
+var imagesLoaded = require("imagesloaded");
 
 hideLayers();
 preLoader();
@@ -42827,7 +42827,7 @@ preloadImages.then(function () {
 function showPage() {
   _gsap.default.timeline().to(camera.position, {
     duration: 0.5,
-    z: 0.85
+    z: 0.95
   }, 0).set("#loader", {
     display: "none"
   }).set("#layer-1", {
@@ -42835,7 +42835,10 @@ function showPage() {
   }).to("#layer-3", {
     duration: 0.5,
     display: "block"
-  }, 0.5).to("#layer-1", {
+  }, 0.5).to(camera.position, {
+    duration: 0.5,
+    z: 0.85
+  }, 0.6).to("#layer-1", {
     duration: 0.5,
     scaleX: 1,
     scaleY: 1,
@@ -42875,7 +42878,7 @@ require("../scss/main.scss");
 require("./bgLayer");
 
 require("./preLoader");
-},{"../scss/main.scss":"scss/main.scss","./bgLayer":"js/bgLayer.js","./preLoader":"js/preLoader.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"../scss/main.scss":"scss/main.scss","./bgLayer":"js/bgLayer.js","./preLoader":"js/preLoader.js"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -42903,7 +42906,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64971" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52089" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -43079,5 +43082,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/index.js"], null)
+},{}]},{},["../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/index.js"], null)
 //# sourceMappingURL=/js.00a46daa.js.map

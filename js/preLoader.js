@@ -83,10 +83,11 @@ preloadImages.then(() => {
 function showPage() {
   gsap
     .timeline()
-    .to(camera.position, { duration: 0.5, z: 0.85 }, 0)
+    .to(camera.position, { duration: 0.5, z: 0.95 }, 0)
     .set("#loader", { display: "none" })
     .set("#layer-1", { display: "block" })
     .to("#layer-3", { duration: 0.5, display: "block" }, 0.5)
+    .to(camera.position, { duration: 0.5, z: 0.85 }, 0.6)
     .to("#layer-1", { duration: 0.5, scaleX: 1, scaleY: 1, ease: "expo" }, 0.6);
 }
 
