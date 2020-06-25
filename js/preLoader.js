@@ -77,7 +77,7 @@ const preloadImages = new Promise((resolve, reject) => {
 preloadImages.then(() => {
   // inits
   hideLayers();
-  setTimeout(showPage, 500);
+  setTimeout(showPage, 1000);
 });
 
 function showPage() {

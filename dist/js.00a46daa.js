@@ -42821,7 +42821,7 @@ var preloadImages = new Promise(function (resolve, reject) {
 preloadImages.then(function () {
   // inits
   hideLayers();
-  setTimeout(showPage, 500);
+  setTimeout(showPage, 1000);
 });
 
 function showPage() {
@@ -42906,7 +42906,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52089" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64669" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
