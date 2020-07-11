@@ -42121,7 +42121,8 @@ function init() {
   scene.add(mesh); // Renderer 1 - no post processing!!!
 
   renderer = new THREE.WebGLRenderer({
-    antialias: true
+    antialias: true,
+    alpha: true
   });
   renderer.setPixelRatio(window.devicePixelRatio); //hd
 
@@ -42180,7 +42181,7 @@ var discover = _gsap.default.timeline({
   paused: true
 }).set("#layer-3", {
   overflow: "initial",
-  height: "400%"
+  height: "auto"
 }).to("#layer-1", {
   duration: 0.5,
   scaleX: 0,
@@ -42906,7 +42907,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64669" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55746" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

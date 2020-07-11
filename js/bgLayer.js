@@ -88,7 +88,7 @@ function init() {
   scene.add(mesh);
 
   // Renderer 1 - no post processing!!!
-  renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer = new THREE.WebGLRenderer({ antialias: true, alpha:true });
   renderer.setPixelRatio(window.devicePixelRatio); //hd
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);
@@ -146,7 +146,7 @@ function render() {
 // mega animations: everything fades away as layer-1 converges to the center and reverse
 let discover = gsap
   .timeline({ paused: true })
-  .set("#layer-3", { overflow: "initial", height: "400%" })
+  .set("#layer-3", { overflow: "initial", height: "auto" })
   .to("#layer-1", { duration: 0.5, scaleX: 0, scaleY: 0, ease: "expo" }, 0)
   .to(camera.position, { duration: 0.5, z: 1 }, 0)
   .to(camera.position, { duration: 1, z: 15 }, 0.5)
