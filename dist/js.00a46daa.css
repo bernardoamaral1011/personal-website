@@ -265,5 +265,14 @@ canvas {
     width: 100%;
   }
 }
+@media only screen and (max-width: 260px) {
+  html {
+    font-size: 43%;
+  }
+
+  footer {
+    width: 100%;
+  }
+}
 
 /*# sourceMappingURL=/js.00a46daa.css.map */

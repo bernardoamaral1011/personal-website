@@ -15,7 +15,8 @@
     "gsap": "^3.3.0",
     "imagesloaded": "^4.1.4",
     "three": "^0.117.1",
-    "three-orbit-controls": "^82.1.0"
+    "three-orbit-controls": "^82.1.0",
+    "lodash": ">=4.17.19"
   },
   "devDependencies": {
     "cssnano": "^4.1.10",
